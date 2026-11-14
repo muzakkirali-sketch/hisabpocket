@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#102b2a">
+<meta name="description" content="A private, offline-first udhaar and payment tracker.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>HisabPocket — Simple Hisab</title>
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--ink:#172927;--muted:#70817e;--line:#e5ece9;--teal:#12665c;--teal2:#e5f3ef;--red:#b7463f;--redbg:#fff0ee;--green:#187653;--greenbg:#e9f6ef;--amber:#93651d;--shadow:0 8px 24px rgba(16,43,42,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:760px;margin:auto;min-height:100dvh;padding-bottom:88px}.top{background:#102b2a;color:white;padding:20px 18px 18px;border-radius:0 0 24px 24px}.topline{display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;font-size:21px;letter-spacing:-.5px}.brand span{color:#7bd5b1}.tag{font-size:12px;color:#c0d5cf}.top h1{font-size:23px;margin:22px 0 4px}.top p{margin:0;color:#c0d5cf;font-size:13px}.summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.metric{background:#1b3b38;border:1px solid #31534e;border-radius:16px;padding:13px}.metric small{display:block;color:#bdd0ca;font-size:12px}.metric strong{display:block;font-size:22px;margin-top:5px;letter-spacing:-.5px}.metric.due strong{color:#ffb5a9}.metric.credit strong{color:#8fe0ba}.content{padding:18px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:2px 0 12px}.sectionhead h2{font-size:17px;margin:0}.muted{color:var(--muted)}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:700;background:var(--teal);color:white}.btn.secondary{background:var(--teal2);color:var(--teal)}.btn.ghost{background:#f0f4f2;color:#35504b}.btn.danger{background:var(--redbg);color:var(--red)}.btn.small{padding:8px 11px;font-size:13px}.btn.full{width:100%}.toolbar{display:flex;gap:8px;margin-bottom:13px}.search{flex:1;min-width:0;border:1px solid var(--line);background:white;border-radius:12px;padding:11px 13px;outline:none}.search:focus,input:focus,select:focus,textarea:focus{border-color:#6bb9a1;box-shadow:0 0 0 3px #dff2eb;outline:none}.list{display:grid;gap:9px}.person{display:flex;align-items:center;gap:12px;background:var(--card);padding:14px;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);width:100%;text-align:left;color:inherit}.avatar{width:42px;height:42px;flex:none;border-radius:13px;background:var(--teal2);color:var(--teal);display:grid;place-items:center;font-weight:800}.personmain{min-width:0;flex:1}.personmain strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.personmain small{color:var(--muted)}.amount{text-align:right;font-weight:800}.amount small{display:block;font-size:11px;font-weight:600;color:var(--muted)}.amount.owed{color:var(--red)}.amount.owing{color:var(--green)}.empty{background:white;border:1px dashed #cbd8d3;border-radius:16px;padding:25px;text-align:center;color:var(--muted)}.empty b{display:block;color:var(--ink);margin-bottom:4px}.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5;padding:8px max(10px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom))}.navin{width:min(760px,100%);display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{border:0;background:transparent;color:#758681;border-radius:12px;padding:7px 3px;font-size:11px;font-weight:650}.nav button.active{background:var(--teal2);color:var(--teal)}.nav i{display:block;font-style:normal;font-size:19px;margin-bottom:2px}.fab{position:fixed;right:max(20px,calc((100vw - 720px)/2));bottom:83px;border:0;border-radius:18px;background:#12665c;color:white;width:56px;height:56px;font-size:28px;box-shadow:0 8px 20px #12665c55;z-index:4}.page{display:none}.page.active{display:block}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:11px;box-shadow:var(--shadow)}.field{display:grid;gap:6px;margin:12px 0}.field label{font-size:13px;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #dce6e1;border-radius:11px;padding:12px;background:white;color:var(--ink)}.field textarea{min-height:80px;resize:vertical}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.modalback{position:fixed;inset:0;background:#0c211f88;z-index:10;display:none;align-items:flex-end;justify-content:center}.modalback.show{display:flex}.modal{background:var(--bg);width:min(760px,100%);max-height:92dvh;overflow:auto;border-radius:22px 22px 0 0;padding:18px 18px calc(22px + env(safe-area-inset-bottom))}.modalhead{display:flex;justify-content:space-between;align-items:center}.modalhead h2{margin:0;font-size:19px}.close{border:0;background:#e8efeb;border-radius:50%;width:35px;height:35px;font-size:20px}.tabs{display:flex;gap:7px}.tabs button{flex:1}.pill{display:inline-block;padding:4px 8px;border-radius:99px;font-size:11px;font-weight:700;background:#eef3f0;color:#5b6e67}.tx{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}.tx:last-child{border:0}.tx strong{display:block}.tx small{color:var(--muted)}.tx .plus{color:var(--green)}.tx .minus{color:var(--red)}.notice{background:#fff8e8;border:1px solid #f0dfb5;color:#73531d;border-radius:12px;padding:11px;font-size:12px;margin:12px 0}.settingrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.settingrow:last-child{border:0}.hidden{display:none!important}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#102b2a;color:white;padding:11px 16px;border-radius:12px;z-index:30;box-shadow:var(--shadow);font-size:13px;max-width:90%;text-align:center}.detailbalance{border-radius:15px;padding:15px;background:#102b2a;color:white;margin:13px 0}.detailbalance strong{font-size:25px;display:block}.detailbalance small{color:#c4d5d0}
+@media(min-width:600px){.modalback{align-items:center}.modal{border-radius:22px;margin:20px}.top{margin:12px;border-radius:24px}.content{padding:20px 24px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div class="topline"><div class="brand">Hisab<span>Pocket</span></div><div class="tag">PRIVATE · OFFLINE</div></div>
+ <h1>Simple hisaab. Clear mind.</h1><p>Your udhaar and payment tracker</p>
+ <div class="summary">
+  <div class="metric due"><small>You'll receive</small><strong id="totalReceive">₹0</strong></div>
+  <div class="metric credit"><small>You'll pay</small><strong id="totalPay">₹0</strong></div>
+ </div>
+</header>
+<main class="content">
+ <section id="homePage" class="page active">
+  <div class="sectionhead"><h2>People & balances</h2><span class="pill" id="peopleCount">0 people</span></div>
+  <div class="toolbar"><input id="searchPeople" class="search" placeholder="Search name or phone..." autocomplete="off"><button class="btn small" id="addPersonTop">+ Add</button></div>
+  <div id="peopleList" class="list"></div>
+ </section>
+ <section id="activityPage" class="page">
+  <div class="sectionhead"><h2>Recent activity</h2><span class="pill">All entries</span></div>
+  <div id="activityList" class="card"></div>
+ </section>
+ <section id="backupPage" class="page">
+  <div class="sectionhead"><h2>Backup & restore</h2></div>
+  <div class="card">
+   <b>Your data stays on this device</b><p class="muted" style="font-size:13px">HisabPocket does not upload your contacts or transactions. Export a backup regularly, especially before changing or resetting your phone or browser.</p>
+   <button class="btn full" id="exportBtn">Download backup</button>
+   <div class="field"><label>Restore from backup file</label><input type="file" id="importFile" accept="application/json"></div>
+   <button class="btn secondary full" id="restoreBtn">Restore backup</button>
+   <div class="notice">Restoring replaces the current HisabPocket data on this device. Export a backup first.</div>
+  </div>
+  <div class="card">
+   <b>About HisabPocket</b>
+   <div class="settingrow"><span class="muted">Version</span><b>1.0</b></div>
+   <div class="settingrow"><span class="muted">Works offline</span><b>Yes, after first load</b></div>
+   <div class="settingrow"><span class="muted">Account required</span><b>No</b></div>
+   <div class="settingrow"><span class="muted">Cloud sync</span><b>No</b></div>
+  </div>
+ </section>
+ <section id="aboutPage" class="page">
+  <div class="sectionhead"><h2>How it works</h2></div>
+  <div class="card">
+   <h3 style="margin-top:0">Keep every transaction clear</h3>
+   <p class="muted">Add a person, record money you gave or received, and HisabPocket calculates the remaining balance.</p>
+   <div class="settingrow"><span>Money you gave</span><span class="pill">They owe you</span></div>
+   <div class="settingrow"><span>Money you received</span><span class="pill">Reduces their due</span></div>
+   <div class="settingrow"><span>Money you borrowed</span><span class="pill">You owe them</span></div>
+   <div class="settingrow"><span>Money you repaid</span><span class="pill">Reduces your due</span></div>
+  </div>
+  <div class="notice">Important: This is a personal record-keeping tool, not accounting, tax or banking software. Verify entries before relying on them.</div>
+ </section>
+</main>
+<button class="fab" id="fab" aria-label="Add transaction">+</button>
+<nav class="nav"><div class="navin">
+ <button class="active" data-page="homePage"><i>⌂</i>Home</button>
+ <button data-page="activityPage"><i>↻</i>Activity</button>
+ <button data-page="backupPage"><i>▣</i>Backup</button>
+ <button data-page="aboutPage"><i>ⓘ</i>About</button>
+</div></nav>
+</div>
+
+<div class="modalback" id="modalBack"><div class="modal" role="dialog" aria-modal="true">
+ <div class="modalhead"><h2 id="modalTitle">Add person</h2><button class="close" id="closeModal" aria-label="Close">×</button></div>
+ <div id="modalBody"></div>
+</div></div>
+<div id="toast" class="toast hidden" role="status"></div>
+
+<script>
+const KEY='hisabpocket_v1';
+let db={people:[],transactions:[]}, currentPerson=null, modalMode='';
+const $=id=>document.getElementById(id);
+const money=n=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(Math.abs(n||0));
+const dateFmt=s=>new Date(s).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x&&Array.isArray(x.people)&&Array.isArray(x.transactions))db=x}catch(e){console.warn('Could not load saved data',e)}}
+function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+function balance(id){return db.transactions.filter(t=>t.personId===id).reduce((s,t)=>s+(['gave','repaid'].includes(t.kind)?Number(t.amount):-Number(t.amount)),0)}
+function totals(){return db.people.reduce((a,p)=>{let b=balance(p.id);if(b>0)a.receive+=b;else a.pay+=-b;return a},{receive:0,pay:0})}
+function toast(msg){$('toast').textContent=msg;$('toast').classList.remove('hidden');setTimeout(()=>$('toast').classList.add('hidden'),2400)}
+function render(){
+ const t=totals();$('totalReceive').textContent=money(t.receive);$('totalPay').textContent=money(t.pay);$('peopleCount').textContent=db.people.length+' people';
+ const q=$('searchPeople').value.trim().toLowerCase();
+ const ps=db.people.filter(p=>(p.name+' '+(p.phone||'')).toLowerCase().includes(q)).sort((a,b)=>a.name.localeCompare(b.name));
+ $('peopleList').innerHTML=ps.length?ps.map(p=>{let b=balance(p.id);return `<button class="person" data-person="${p.id}"><span class="avatar">${esc(p.name.trim().charAt(0).toUpperCase())}</span><span class="personmain"><strong>${esc(p.name)}</strong><small>${esc(p.phone||'No phone number')}</small></span><span class="amount ${b>0?'owed':b<0?'owing':''}">${money(b)}<small>${b>0?'To receive':b<0?'To pay':'Settled'}</small></span></button>`}).join(''):'<div class="empty"><b>No people yet</b>Add someone to start keeping a clear hisaab.</div>';
+ const all=[...db.transactions].sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
+ $('activityList').innerHTML=all.length?all.slice(0,100).map(t=>{let p=db.people.find(x=>x.id===t.personId);return `<div class="tx"><div><strong>${esc(p?.name||'Deleted person')}</strong><small>${({gave:'You gave them',collected:'They repaid you',borrowed:'You borrowed',repaid:'You repaid them'}[t.kind]||'Transaction')} · ${dateFmt(t.createdAt)}${t.note?' · '+esc(t.note):''}</small></div><b class="${t.kind==='gave'?'minus':'plus'}">${['gave','repaid'].includes(t.kind)?'+':'−'}${money(t.amount)}</b></div>`}).join(''):'<div class="muted" style="text-align:center;padding:15px">No transactions yet.</div>';
+}
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));$('fab').classList.toggle('hidden',id==='backupPage'||id==='aboutPage');}
+function openModal(title,html){$('modalTitle').textContent=title;$('modalBody').innerHTML=html;$('modalBack').classList.add('show')}
+function closeModal(){$('modalBack').classList.remove('show');currentPerson=null}
+function addPerson(){openModal('Add a person',`<form id="personForm"><div class="field"><label>Name *</label><input name="name" required maxlength="60" placeholder="e.g. Aamir Khan"></div><div class="field"><label>Mobile number (optional)</label><input name="phone" inputmode="tel" maxlength="20" placeholder="e.g. 9876543210"></div><button class="btn full">Save person</button></form>`);$('personForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target),name=String(f.get('name')).trim();if(!name)return;db.people.push({id:crypto.randomUUID(),name,phone:String(f.get('phone')).trim()});save();closeModal();toast('Person added')}}
+function transactionForm(personId=''){
+ const opts=db.people.map(p=>`<option value="${p.id}" ${p.id===personId?'selected':''}>${esc(p.name)}</option>`).join('');
+ openModal('Add transaction',`<form id="txForm"><div class="field"><label>Person *</label><select name="personId" required>${opts||'<option value="">Add a person first</option>'}</select></div><div class="field"><label>Transaction type *</label><div class="formgrid"><button type="button" class="btn secondary" data-kind="gave">I gave them</button><button type="button" class="btn ghost" data-kind="collected">They repaid me</button><button type="button" class="btn ghost" data-kind="borrowed">I borrowed</button><button type="button" class="btn ghost" data-kind="repaid">I repaid them</button></div><input type="hidden" name="kind" value="gave"></div><div class="field"><label>Amount (₹) *</label><input name="amount" required type="number" min="0.01" max="999999999" step="0.01" inputmode="decimal" placeholder="0.00"></div><div class="field"><label>Date</label><input name="date" type="date" value="${new Date().toISOString().slice(0,10)}" required></div><div class="field"><label>Note (optional)</label><input name="note" maxlength="100" placeholder="e.g. Monthly payment"></div><button class="btn full">Save transaction</button></form>`);
+ let kind='gave';function setKind(k){kind=k;$('txForm').elements.kind.value=k;document.querySelectorAll('[data-kind]').forEach(b=>b.className='btn '+(b.dataset.kind===k?'secondary':'ghost'))}
+ document.querySelectorAll('[data-kind]').forEach(b=>b.onclick=()=>setKind(b.dataset.kind));setKind('gave');
+ $('txForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target),amount=Number(f.get('amount')),pid=String(f.get('personId'));if(!pid||!Number.isFinite(amount)||amount<=0)return;let dt=String(f.get('date'));db.transactions.push({id:crypto.randomUUID(),personId:pid,kind,amount,note:String(f.get('note')).trim(),createdAt:new Date(dt+'T12:00:00').toISOString()});save();closeModal();toast('Transaction saved')};
+}
+function personDetail(id){let p=db.people.find(x=>x.id===id);if(!p)return;let b=balance(id),tx=db.transactions.filter(t=>t.personId===id).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));currentPerson=id;
+ openModal(p.name,`<div class="detailbalance"><small>${b>0?'They owe you':b<0?'You owe them':'No pending balance'}</small><strong>${money(b)}</strong><small>${esc(p.phone||'No phone number')}</small></div><div class="tabs"><button class="btn" id="detailAdd">+ Transaction</button><button class="btn secondary" id="detailWhats" ${!p.phone?'disabled':''}>WhatsApp reminder</button></div><div class="sectionhead" style="margin-top:20px"><h3 style="margin:0">Transaction history</h3><span class="pill">${tx.length} entries</span></div><div>${tx.length?tx.map(t=>`<div class="tx"><div><strong>${({gave:'You gave them',collected:'They repaid you',borrowed:'You borrowed',repaid:'You repaid them'}[t.kind]||'Transaction')}</strong><small>${dateFmt(t.createdAt)}${t.note?' · '+esc(t.note):''}</small></div><b class="${t.kind==='gave'?'minus':'plus'}">${['gave','repaid'].includes(t.kind)?'+':'−'}${money(t.amount)}</b></div>`).join(''):'<p class="muted">No transactions yet.</p>'}</div><div style="display:flex;gap:8px;margin-top:18px"><button class="btn ghost small" id="editPerson">Edit person</button><button class="btn danger small" id="deletePerson">Delete person</button></div>`);
+ $('detailAdd').onclick=()=>transactionForm(id);
+ $('detailWhats').onclick=()=>{let phone=p.phone.replace(/\D/g,'');if(phone.length===10)phone='91'+phone;let msg=b>0?`Hello ${p.name}, a friendly reminder that ₹${b.toFixed(2)} is pending. Please let me know when convenient. — HisabPocket`:`Hello ${p.name}, just sharing our current hisaab. Balance: ₹${Math.abs(b).toFixed(2)}. — HisabPocket`;window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank','noopener')};
+ $('editPerson').onclick=()=>editPerson(id);$('deletePerson').onclick=()=>{if(confirm('Delete this person and all their transactions? This cannot be undone unless you have a backup.')){db.people=db.people.filter(x=>x.id!==id);db.transactions=db.transactions.filter(x=>x.personId!==id);save();closeModal();toast('Person deleted')}};
+}
+function editPerson(id){let p=db.people.find(x=>x.id===id);if(!p)return;openModal('Edit person',`<form id="editForm"><div class="field"><label>Name *</label><input name="name" required maxlength="60" value="${esc(p.name)}"></div><div class="field"><label>Mobile number</label><input name="phone" maxlength="20" value="${esc(p.phone||'')}"></div><button class="btn full">Save changes</button></form>`);$('editForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);p.name=String(f.get('name')).trim();p.phone=String(f.get('phone')).trim();save();closeModal();toast('Person updated')}}
+function exportBackup(){const blob=new Blob([JSON.stringify({app:'HisabPocket',version:1,exportedAt:new Date().toISOString(),data:db},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='hisabpocket-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href);toast('Backup downloaded')}
+function restoreBackup(){const f=$('importFile').files[0];if(!f){toast('Choose a backup file first');return}const r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result),d=x.data;if(x.app!=='HisabPocket'||!Array.isArray(d.people)||!Array.isArray(d.transactions))throw Error();if(!confirm('Replace all current data with this backup?'))return;db=d;save();$('importFile').value='';toast('Backup restored')}catch(e){toast('Invalid HisabPocket backup file')}};r.readAsText(f)}
+$('addPersonTop').onclick=addPerson;$('fab').onclick=()=>{if(!db.people.length){addPerson();return}transactionForm()};$('closeModal').onclick=closeModal;$('modalBack').onclick=e=>{if(e.target===$('modalBack'))closeModal()};$('searchPeople').oninput=render;$('exportBtn').onclick=exportBackup;$('restoreBtn').onclick=restoreBackup;
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+$('peopleList').onclick=e=>{let b=e.target.closest('[data-person]');if(b)personDetail(b.dataset.person)};
+load();render();
+if('serviceWorker' in navigator && location.protocol!=='file:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
+</script>
+</body></html>
